@@ -106,7 +106,7 @@ jobs:
                 # 存镜像的命名空间
                 temp_map[$image_name]=$name_space
             fi       
-        done < ${{inputs.imageNames}}
+        done <<< "${{inputs.imageNames}}"
         
         
         while IFS= read -r line || [ -n "$line" ]; do
@@ -165,4 +165,4 @@ jobs:
             df -hT
             echo "=============================================================================="     
             
-        done < ${{inputs.imageNames}}
+        done <<< "${{inputs.imageNames}}"
