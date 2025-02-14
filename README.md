@@ -1,7 +1,7 @@
 # Docker Images Pusher
 
 魔改自[docker_image_pusher](https://github.com/tech-shrimp/docker_image_pusher)
-抛弃了原有的更改配置文件触发同步的方案，改为使用github的workflow ui来触发，相比而言，更为方便:)
+抛弃了原有的更改配置文件触发同步的方案，改为使用github的action ui来触发，相比而言，更为方便:)
 
 ## 使用方式
 
@@ -31,13 +31,11 @@ ALIYUN_NAME_SPACE,ALIYUN_REGISTRY_USER，ALIYUN_REGISTRY_PASSWORD，ALIYUN_REGIS
 配置成环境变量
 
 ### 添加镜像
-打开images.txt文件，添加你想要的镜像 
+使用github action ui指定你想要的镜像 
 可以加tag，也可以不用(默认latest)<br>
-可添加 --platform=xxxxx 的参数指定镜像架构<br>
+可指定 platform来指定镜像架构<br>
 可使用 k8s.gcr.io/kube-state-metrics/kube-state-metrics 格式指定私库<br>
-可使用 #开头作为注释<br>
 ![](doc/images.png)
-文件提交后，自动进入Github Action构建
 
 ### 使用镜像
 回到阿里云，镜像仓库，点击任意镜像，可查看镜像状态。(可以改成公开，拉取镜像免登录)
