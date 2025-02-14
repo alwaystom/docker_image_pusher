@@ -106,7 +106,7 @@ jobs:
                 # 存镜像的命名空间
                 temp_map[$image_name]=$name_space
             fi       
-        done < ${{imageNames}}
+        done < ${{inputs.imageNames}}
         
         
         while IFS= read -r line || [ -n "$line" ]; do
@@ -118,7 +118,8 @@ jobs:
         
             echo "docker pull $line"
             docker pull $line
-            platform=$(echo "$line" | awk -F'--platform[ =]' '{if (NF>1) print $2}' | awk '{print $1}')
+            # platform=$(echo "$line" | awk -F'--platform[ =]' '{if (NF>1) print $2}' | awk '{print $1}')
+            platform= ${{inputs.platform}}
             echo "platform is $platform"
             # 如果存在架构信息 将架构信息拼到镜像名称前面
             if [ -z "$platform" ]; then
@@ -164,4 +165,4 @@ jobs:
             df -hT
             echo "=============================================================================="     
             
-        done < ${{imageNames}}
+        done < ${{inputs.imageNames}}
