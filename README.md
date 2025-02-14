@@ -35,7 +35,6 @@ ALIYUN_NAME_SPACE,ALIYUN_REGISTRY_USER，ALIYUN_REGISTRY_PASSWORD，ALIYUN_REGIS
 可以加tag，也可以不用(默认latest)<br>
 可指定 platform来指定镜像架构<br>
 可使用 k8s.gcr.io/kube-state-metrics/kube-state-metrics 格式指定私库<br>
-![](doc/images.png)
 
 ### 使用镜像
 回到阿里云，镜像仓库，点击任意镜像，可查看镜像状态。(可以改成公开，拉取镜像免登录)
